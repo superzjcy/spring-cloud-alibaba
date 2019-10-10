@@ -186,7 +186,7 @@ public class SentinelBeanPostProcessor implements MergedBeanDefinitionPostProces
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName)
 			throws BeansException {
-		if (cache.containsKey(beanName)) {
+		if (beanName !=null && cache.containsKey(beanName)) {
 			// add interceptor for each RestTemplate with @SentinelRestTemplate annotation
 			StringBuilder interceptorBeanNamePrefix = new StringBuilder();
 			SentinelRestTemplate sentinelRestTemplate = cache.get(beanName);
